@@ -76,4 +76,4 @@ jobs:
       - name: Run tests
         run: |
           python3 x.py test --stage 2 \
-            src/test/ui    
+            tests/ui    
