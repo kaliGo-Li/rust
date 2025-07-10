@@ -72,9 +72,9 @@ jobs:
           fetch-depth: 0 
       - name: Build compiler
         run: |
-          python3 x.py build --stage 2
+          python3 x.py build --stage 2 --target riscv64gc-unknown-linux-gnu 
       
       - name: Run tests
         run: |
-          python3 x.py test --stage 2 \
+          python3 x.py test --stage 2  --target riscv64gc-unknown-linux-gnu \
             tests/ui    
