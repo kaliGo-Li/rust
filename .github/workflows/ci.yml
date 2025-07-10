@@ -69,6 +69,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 0 
       - name: Build compiler
         run: |
           python3 x.py build --stage 2
