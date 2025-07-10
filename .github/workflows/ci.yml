@@ -32,7 +32,7 @@ jobs:
   # If you want to modify CI jobs, take a look at src/ci/github-actions/jobs.yml.
   calculate_matrix:
     name: Calculate job matrix
-    runs-on: [self-hosted, rust, ephemeral]
+    runs-on: [self-hosted]
     outputs:
       jobs: ${{ steps.jobs.outputs.jobs }}
       run_type: ${{ steps.jobs.outputs.run_type }}
@@ -56,7 +56,7 @@ jobs:
   job:
     name: ${{ matrix.full_name }}
     needs: [ calculate_matrix ]
-    runs-on: [self-hosted, rust, ephemeral]
+    runs-on: [self-hosted]
     timeout-minutes: 3600
     steps:
       - uses: actions/checkout@v4
