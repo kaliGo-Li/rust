@@ -63,6 +63,23 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0 
+      - name: Configure bootstrap
+        run: |
+         cat > bootstrap.toml << 'EOF'
+         [llvm]
+         download-ci-llvm = false
+         targets = "RISCV"
+         [build]
+         build = "riscv64gc-unknown-linux-gnu"
+         host = ["riscv64gc-unknown-linux-gnu"]
+         target = ["riscv64gc-unknown-linux-gnu"]
+         jobs = 0
+         [rust]
+         codegen-units = 16
+         lld = false
+         docs = false
+         debuginfo-level = 0
+         EOF
       - name: Build compiler
         run: |
           python3 x.py build --stage 2 --target riscv64gc-unknown-linux-gnu 
