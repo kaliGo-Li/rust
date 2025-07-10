@@ -74,11 +74,6 @@ jobs:
          host = ["riscv64gc-unknown-linux-gnu"]
          target = ["riscv64gc-unknown-linux-gnu"]
          jobs = 0
-         [rust]
-         codegen-units = 16
-         lld = false
-         docs = false
-         debuginfo-level = 0
          EOF
       - name: Build compiler
         run: |
