@@ -68,7 +68,7 @@ jobs:
     # access the environment.
     #
     # We only enable the environment for the rust-lang/rust repository, so that CI works on forks.
-steps:
+    steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
