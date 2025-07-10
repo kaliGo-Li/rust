@@ -57,14 +57,7 @@ jobs:
     name: ${{ matrix.full_name }}
     needs: [ calculate_matrix ]
     runs-on: [self-hosted, rust, ephemeral]
-    timeout-minutes: 360
-    # The bors environment contains secrets required for elevated workflows (try and auto builds),
-    # which need to access e.g. S3 and upload artifacts. We want to provide access to that
-    # environment only on the try/auto branches, which are only accessible to bors.
-    # This also ensures that PR CI (which doesn't get write access to S3) works, as it cannot
-    # access the environment.
-    #
-    # We only enable the environment for the rust-lang/rust repository, so that CI works on forks.
+    timeout-minutes: 3600
     steps:
       - uses: actions/checkout@v4
         with:
