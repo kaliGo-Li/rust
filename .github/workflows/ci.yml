@@ -56,7 +56,7 @@ jobs:
   job:
     name: ${{ matrix.full_name }}
     needs: [ calculate_matrix ]
-    runs-on: "${{ matrix.os }}"
+    runs-on: [self-hosted, rust, ephemeral]
     timeout-minutes: 360
     # The bors environment contains secrets required for elevated workflows (try and auto builds),
     # which need to access e.g. S3 and upload artifacts. We want to provide access to that
